@@ -1,0 +1,23 @@
+
+
+
+if [ $# -eq 0 ]; then
+	amixer get Master | awk -F'[]%[]' '/%/ { \
+		if ($7 == "off") { \
+			 print "^fg(#FFB6B0)MM^fg()" \
+		} else { \
+			 print "^fg(#CEFFAC)"$2"^fg()%" \
+		} \
+	}' | head -n 1
+
+elif [ "$1" == "up" ]; then
+	amixer -q set Master 2%+
+
+elif [ "$1" == "down" ]; then
+	amixer -q set Master 2%-
+
+elif [ "$1" == "toggle" ]; then
+	amixer -q set Master toggle
+fi
+
+

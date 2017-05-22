@@ -1,0 +1,6 @@
+#!/bin/bash
+
+bspc subscribe node_state | while read msg monid deskid nid state flag ; do
+    [ $state = "fullscreen" -a $state = "on" ] && bspc node $nid -l above
+    [ $state = "fullscreen" -a $state = "off" ] && bspc node $nid -l below
+done

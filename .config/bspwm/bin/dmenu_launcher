@@ -1,0 +1,6 @@
+#!/bin/bash
+
+source $(dirname $0)/panel_config
+
+
+dmenu_run_recent -i -fn $FONT -h '16' -nb $BG -nf $FG -sb $SEL_BG -sf $SEL_FG

@@ -1,0 +1,22 @@
+#!/bin/bash
+
+FONT='-*-fixed-*-r-normal-*-12-*-*-*-*-*-*-*'
+PAD='  '
+ACT='onstart=uncollapse;button1=exit;button3=exit'
+YPOS='16'
+
+# Colors
+FG="#b3d0cc"
+BG="#000000"
+
+bar_bg="#d0d0d0"
+bar_fg="#708ca2"
+label="#77a7a9"
+warn="#FFB6B0"
+
+# calendar
+highlight="#708ca2"
+highlight2="#404443"
+
+OPTIONS="-bg ${BG} -fg ${FG} -y ${YPOS} -e ${ACT} -ta 'c'"
+

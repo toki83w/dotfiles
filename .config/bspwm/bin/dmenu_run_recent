@@ -1,0 +1,52 @@
+#!/bin/bash
+
+CACHEDIR=${XDG_CACHE_HOME:-"$HOME/.cache"}
+
+if [ -d "$CACHEDIR" ]; then
+    CACHE=$CACHEDIR/dmenu_run_recent
+else
+    CACHE=$HOME/.dmenu_cache_recent
+fi
+
+touch $CACHE
+
+
+# recent commands
+RECENT=( $(cat $CACHE) )
+
+# valid commands
+VALID=`dmenu_path`
+
+# invalid commands - remove VALID from RECENT
+INVALID=" ${RECENT[*]} "
+for item in ${VALID[@]}; do
+    INVALID=${INVALID/ ${item} / }
+done
+INVALID=( $INVALID )
+
+# now remove INVALID from RECENT
+RECENT=" ${RECENT[*]} "
+for item in ${INVALID[@]}; do
+    RECENT=${RECENT/ ${item} / }
+done
+RECENT=( $RECENT )
+
+# and finally clean the cache
+( IFS=$'\n'; echo "${RECENT[*]}" ) > $CACHE
+
+
+# put recent commands in front and remove them from the list of dmenu_path - then launch dmenu
+RUN=`(cat "$CACHE"; dmenu_path | grep -vxFf "$CACHE") | dmenu "$@"`
+
+# if no command, quit
+[[ -z "$RUN" ]] && exit
+
+# print the command in front, append the other recent commands and remove duplicates
+# using awk [cannot use uniq because it requires sorted lines]
+{ echo $RUN; cat $CACHE; } | awk '!x[$0]++' > $CACHE.$$ && mv "$CACHE".$$ "$CACHE"
+
+case $RUN in
+    #~ *\;) exec `echo $TERMI $RUN | sed -e 's/;$//'`;;
+    *\;) source "$HOME/.bashrc"; echo "${RUN/;/}";;
+    *)   exec $RUN &;;
+esac

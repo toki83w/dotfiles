@@ -1,0 +1,8 @@
+[Basic Settings]
+Indexing-Enabled=false
+
+[General]
+dbVersion=2
+exclude filters=*.pc,qrc_*.cpp,.hg,CTestTestfile.cmake,config.status,CMakeTmp,*.rcore,.histfile.*,*.m4,confstat,*.pyc,*.la,.git,litmain.sh,.moc,*.po,libtool,CMakeFiles,*.lo,core-dumps,.pch,*.part,po,*.csproj,*.aux,*.loT,lzo,autom4te,moc_*.cpp,CMakeCache.txt,*~,*.o,*.rej,cmake_install.cmake,*.omf,*.tmp,CMakeTmpQmake,.bzr,.uic,CVS,lost+found,__pycache__,ui_*.h,confdefs.h,*.elc,*.moc,*.nvram,_darcs,.obj,*.swap,*.class,.xsession-errors*,*.vm*,.svn,Makefile.am,conftest,*.gmo,*.orig
+exclude filters version=2
+first run=false

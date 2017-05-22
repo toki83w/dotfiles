@@ -1,0 +1,32 @@
+#!/bin/sh
+
+# Configure PATH so that we can access our scripts
+PATH=$PATH:~/.config/bspwm/bin
+
+# Configure X
+xsetroot -cursor_name left_ptr &
+
+
+# Disable X screensaver
+xset s off
+xset dpms 0 0 0
+
+# Setup stlarch font
+xset +fp /usr/share/fonts/local
+xset fp rehash
+
+#setup monitors
+HDMICONN=`xrandr | grep HDMI1 | awk '{ print $2 }'`
+if [ $HDMICONN = "connected" ]; then
+    output_monitor
+else
+    output_laptop
+fi
+
+# Set background
+feh --bg-fill --no-fehbg ~/.config/bspwm/aa_1920x1080_3.jpg
+
+#exec ck-launch-session dbus-launch --sh-syntax --exit-with-session xmonad
+sxhkd &
+exec bspwm
+

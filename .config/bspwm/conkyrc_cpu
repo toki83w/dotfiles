@@ -1,0 +1,49 @@
+own_window yes
+# Use double buffering (reduces flicker, may not work for everyone)
+double_buffer yes
+# fiddle with window
+use_spacer left
+use_xft no
+# Update interval in seconds
+update_interval 3.0
+#Maximum Width of Window
+maximum_width 320
+# Minimum size of text area
+# minimum_size 250 5
+# Draw shades?
+draw_shades no
+# Text stuff
+draw_outline no # amplifies text if yes
+draw_borders no
+font fixed
+uppercase no # set to yes if you want all text to be in uppercase
+# Stippled borders?
+stippled_borders 3
+# border margins
+border_margin 5
+# border width
+border_width 6
+# Default colors and also border colors, grey90 == #e5e5e5
+default_color FFFFCC
+own_window_colour brown
+own_window_transparent yes
+# Text alignment, other possible values are commented
+#alignment top_left
+alignment top_right
+#alignment bottom_left
+#alignment bottom_right
+# Gap between borders of screen and text
+gap_x 10
+gap_y 10
+
+
+TEXT
+CPU stats
+${cpubar cpu1 6, 130} ${freq_g cpu1}GHz ${cpu cpu1}%
+${cpubar cpu2 6, 130} ${freq_g cpu2}GHz ${cpu cpu2}%
+${cpubar cpu3 6, 130} ${freq_g cpu3}GHz ${cpu cpu3}%
+${cpubar cpu4 6, 130} ${freq_g cpu4}GHz ${cpu cpu4}%
+${cpubar cpu5 6, 130} ${freq_g cpu5}GHz ${cpu cpu5}%
+${cpubar cpu6 6, 130} ${freq_g cpu6}GHz ${cpu cpu6}%
+${cpubar cpu7 6, 130} ${freq_g cpu7}GHz ${cpu cpu7}%
+${cpubar cpu8 6, 130} ${freq_g cpu8}GHz ${cpu cpu8}%

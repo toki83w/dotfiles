@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorSession>
+<!-- Written by Qt Creator 2.5.2, 2012-08-18T15:17:29. -->
+<qtcreator>
+ <data>
+  <variable>EditorSettings</variable>
+  <value type="QByteArray">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</value>
+ </data>
+ <data>
+  <variable>OpenEditors</variable>
+  <value type="int">4</value>
+ </data>
+ <data>
+  <variable>ProjectDependencies</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>ProjectList</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">/home/luca/Projects/qt4/psyncro/PSyncro.pro</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>StartupProject</variable>
+  <value type="QString">/home/luca/Projects/qt4/psyncro/PSyncro.pro</value>
+ </data>
+ <data>
+  <variable>value-ActiveMode</variable>
+  <value type="QString">Edit</value>
+ </data>
+ <data>
+  <variable>value-Bookmarks</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-Breakpoints</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>value-DebuggerToolTips</variable>
+  <value type="QString"></value>
+ </data>
+ <data>
+  <variable>value-DefaultFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-ProjectTree.ExpandData</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">session</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/PSyncro.pro</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/PSyncro.pro</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/#0Headers</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/src</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/#1Sources</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/src</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/#2Forms</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/ui</value>
+   <value type="QString">/home/luca/Projects/qt4/psyncro/#5Other files</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-Watchers</variable>
+  <valuelist type="QVariantList"/>
+ </data>
+ <data>
+  <variable>valueKeys</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">ActiveMode</value>
+   <value type="QString">Bookmarks</value>
+   <value type="QString">Breakpoints</value>
+   <value type="QString">DebuggerToolTips</value>
+   <value type="QString">DefaultFormats</value>
+   <value type="QString">ProjectTree.ExpandData</value>
+   <value type="QString">Watchers</value>
+  </valuelist>
+ </data>
+</qtcreator>

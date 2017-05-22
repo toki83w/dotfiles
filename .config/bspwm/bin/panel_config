@@ -1,0 +1,27 @@
+#!/bin/bash
+
+# bspwm panel config
+
+# extension iso10646 for unicode symbols
+FONT='-*-fixed-*-r-normal-*-10-*-*-*-*-*-iso10646-1'
+# stlarch contains icons for status bar
+FONT2='-misc-stlarch-medium-r-normal--10-100-75-75-c-80-iso10646-1'
+
+
+PANEL_FIFO=/tmp/bspwm_panel_fifo
+
+PAD=' '
+
+# color definitions
+
+FG='#ffffff'
+BG='#000000'
+
+URGENT_FG='#FFB6B0'
+FOCUS_FG=$BG
+FOCUS_BG='#708fa3'
+TITLE_FG='#708fa3'
+LAYOUT_FG='#b3d0cc'
+SEL_BG='#0066cc'
+SEL_FG='#AAAAAA'
+

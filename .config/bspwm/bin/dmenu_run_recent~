@@ -1,0 +1,36 @@
+#!/bin/bash
+
+cachedir=${XDG_CACHE_HOME:-"$HOME/.cache"}
+
+if [ -d "$cachedir" ]; then
+        cache=$cachedir/dmenu_run
+        cacher=$cachedir/dmenu_run_recent
+else
+        cache=$HOME/.dmenu_cache # if no xdg dir, fall back to dotfile in ~
+        cacher=$HOME/.dmenu_cache_recent
+fi
+
+touch $cacher
+
+if [[ ! -e "$cache" || `stest -dqr -n "$cache" $PATH` ]]; then
+        echo "new cache"
+        
+        IFS=:
+        stest -flx $PATH | sort -u > "$cache"
+        cat "$cacher" "$cache" | uniq > "$cache".$$
+        mv "$cache".$$ "$cache"
+fi
+
+RUN=`(dmenu "$@" < "$cache")`
+
+[[ -z "$RUN" ]] && exit
+
+# awk '!x[$0]++' takes unique lines not sorted
+{ echo $RUN; cat $cacher; } | awk '!x[$0]++' | tac > $cacher.$$ && mv "$cacher".$$ "$cacher"
+{ echo $RUN; cat $cache; } | awk '!x[$0]++' > $cache.$$ && mv "$cache".$$ "$cache"
+
+case $RUN in
+    #~ *\;) exec `echo $TERMI $RUN | sed -e 's/;$//'`;;
+    *\;) source "$HOME/.bashrc"; echo "${RUN/;/}";;
+    *)   exec $RUN &;;
+esac

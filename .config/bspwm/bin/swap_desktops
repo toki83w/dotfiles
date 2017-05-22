@@ -1,0 +1,25 @@
+#!/bin/bash
+
+# current primary monitor
+PRIMON=$1
+# current secondary monitor
+SECMON=$2
+# primary desktops count
+PDESKS=$3
+# secondary desktops count
+SDESKS=$4
+
+# move primary desktops to secondary monitor [except the first]
+for i in `seq 2 $PDESKS`
+do
+    bspc desktop $PRIMON:^2 -m $SECMON
+done
+
+# move secondary desktops to primary monitor [except the first]
+for i in `seq 2 $SDESKS`
+do  
+    bspc desktop $SECMON:^2 -m $PRIMON
+done
+
+# swap the first desktops in each monitor
+bspc desktop $PRIMON:^1 -s $SECMON:^1

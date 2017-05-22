@@ -1,0 +1,119 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorSession>
+<!-- Written by QtCreator 4.1.0, 2016-11-08T22:57:27. -->
+<qtcreator>
+ <data>
+  <variable>CascadeSetActive</variable>
+  <value type="bool">false</value>
+ </data>
+ <data>
+  <variable>Color</variable>
+  <value type="QString">#666666</value>
+ </data>
+ <data>
+  <variable>EditorSettings</variable>
+  <value type="QByteArray">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</value>
+ </data>
+ <data>
+  <variable>ProjectDependencies</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>ProjectList</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">/home/luca/Projects/qt5/qrenamer3/qrenamer3.pro</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>StartupProject</variable>
+  <value type="QString">/home/luca/Projects/qt5/qrenamer3/qrenamer3.pro</value>
+ </data>
+ <data>
+  <variable>value-ActiveMode</variable>
+  <value type="QString">Edit</value>
+ </data>
+ <data>
+  <variable>value-Breakpoints</variable>
+  <valuelist type="QVariantList">
+   <valuemap type="QVariantMap">
+    <value type="QString" key="filename">/home/luca/Projects/qt5/qrenamer3/src/qrenamer.cpp</value>
+    <value type="int" key="linenumber">614</value>
+   </valuemap>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-DebuggerSeparateWidgetGeometry</variable>
+  <value type="QRect">100x30+0+0</value>
+ </data>
+ <data>
+  <variable>value-DefaultFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-IndividualFormats</variable>
+  <valuemap type="QVariantMap"/>
+ </data>
+ <data>
+  <variable>value-ProjectTree.ExpandData</variable>
+  <valuelist type="QVariantList">
+   <valuelist type="QVariantList">
+    <value type="QString">session</value>
+    <value type="QString">session</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/luca/Projects/qt5/qrenamer3/qrenamer3.pro</value>
+    <value type="QString">qrenamer3</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/luca/Projects/qt5/qrenamer3</value>
+    <value type="QString">Headers</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/luca/Projects/qt5/qrenamer3/src</value>
+    <value type="QString">src</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/luca/Projects/qt5/qrenamer3</value>
+    <value type="QString">Sources</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/luca/Projects/qt5/qrenamer3</value>
+    <value type="QString">Forms</value>
+   </valuelist>
+   <valuelist type="QVariantList">
+    <value type="QString">/home/luca/Projects/qt5/qrenamer3/ui</value>
+    <value type="QString">ui</value>
+   </valuelist>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.Categories</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">Task.Category.QmlAnalysis</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>value-TaskWindow.IncludeWarnings</variable>
+  <value type="bool">true</value>
+ </data>
+ <data>
+  <variable>value-Watchers</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">saveMenu-&gt;actions()[i]</value>
+  </valuelist>
+ </data>
+ <data>
+  <variable>valueKeys</variable>
+  <valuelist type="QVariantList">
+   <value type="QString">ActiveMode</value>
+   <value type="QString">Breakpoints</value>
+   <value type="QString">DebuggerSeparateWidgetGeometry</value>
+   <value type="QString">DefaultFormats</value>
+   <value type="QString">IndividualFormats</value>
+   <value type="QString">ProjectTree.ExpandData</value>
+   <value type="QString">TaskWindow.Categories</value>
+   <value type="QString">TaskWindow.IncludeWarnings</value>
+   <value type="QString">Watchers</value>
+  </valuelist>
+ </data>
+</qtcreator>

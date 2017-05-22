@@ -1,0 +1,87 @@
+conky.config = {
+    background = false,
+    out_to_console = true,
+    out_to_x = false,
+    update_interval = 2,
+    total_run_times = 0,
+    use_spacer = 'none',
+    times_in_seconds = true,
+    pad_percents = 3,
+    use_spacer = 'left'
+}
+
+
+conky.text = [[
+^i(/home/luca/.config/bspwm/icons/cpu.xbm) \
+${if_match ${cpu cpu1} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu1} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu1}^fg() \
+${if_match ${cpu cpu2} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu2} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu2}^fg() \
+${if_match ${cpu cpu3} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu3} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu3}^fg() \
+${if_match ${cpu cpu4} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu4} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu4}^fg() \
+${if_match ${cpu cpu5} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu5} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu5}^fg() \
+${if_match ${cpu cpu6} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu6} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu6}^fg() \
+${if_match ${cpu cpu7} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu7} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu7}^fg() \
+${if_match ${cpu cpu8} >= 60}^fg(\#FFB6B0)\
+${else}${if_match ${cpu cpu8} < 30}^fg(\#CEFFAC)\
+${else}^fg(\#FFFFCC)${endif}${endif}\
+${cpu cpu8}^fg()\
+    \
+^i(/home/luca/.config/bspwm/icons/temp.xbm) \
+${if_match ${acpitemp} >= 70}^fg(\#FFB6B0)\
+${else}${if_match ${acpitemp} < 30}^fg(\#ADFEFF)\
+${else}^fg(\#CEFFAC)${endif}${endif}\
+${acpitemp}^fg()C\
+   \
+^ca(1, dzen_popup_diskinfo.sh)\
+^i(/home/luca/.config/bspwm/icons/mem.xbm) \
+${if_match ${memperc} >= 80}^fg(\#FFB6B0)\
+${else}${if_match ${memperc} < 50}^fg(\#CEFFAC)\
+${else}^fg(\#ff7514)${endif}${endif}\
+${memperc}^fg()%\
+^ca()\
+   \
+${if_match "${exec cat /sys/class/power_supply/BAT0/status}" == "Charging"}^fg(\#efa94a)^i(/home/luca/.config/bspwm/icons/ac.xbm)^fg()\
+${else}${if_match "${exec cat /sys/class/power_supply/AC0/online}" == "1"}^i(/home/luca/.config/bspwm/icons/ac.xbm)\
+${else}^i(/home/luca/.config/bspwm/icons/bat.xbm)${endif}${endif} \
+${if_match ${battery_percent} >= 50}^fg(\#CEFFAC)\
+${else}${if_match ${battery_percent} <= 10}^fg(\#FFB6B0)\
+${else}^fg(\#ff7514)${endif}${endif}\
+${battery_percent}^fg()%\
+${if_empty $battery_time}${else} (${format_time $battery_time "\hh \mm"})${endif}\
+   \
+^ca(2, vol toggle)^ca(4, vol up)^ca(5, vol down)\
+^i(/home/luca/.config/bspwm/icons/vol.xbm) \
+${exec vol}\
+^ca()^ca()^ca()\
+   \
+^ca(1, dzen_popup_calendar.sh)\
+^i(/home/luca/.config/bspwm/icons/clock.xbm) \
+^fg(\#769ca9)${time %a %b %_d %H:%M}^fg() \
+^ca()\
+ \
+^i(/home/luca/.config/bspwm/icons/up.xbm) \
+^fg(\#b3d0cc)${format_time $uptime "\dd \hh \mm"}^fg()
+]]
+
+
+

@@ -1,0 +1,16 @@
+#!/bin/sh
+
+CACHEDIR=${XDG_CACHE_HOME:-"$HOME/.cache"}
+
+if [ -d "$CACHEDIR" ]; then
+	CACHE=$CACHEDIR/dmenu_run
+else
+	CACHE=$HOME/.dmenu_cache # if no xdg dir, fall back to dotfile in ~
+fi
+
+IFS=:
+if [[ ! -e "$CACHE" || `stest -dr -n "$CACHE" $PATH` ]]; then
+	stest -flx $PATH | sort -u | tee "$CACHE"
+else
+	cat "$CACHE"
+fi

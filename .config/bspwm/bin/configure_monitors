@@ -1,0 +1,116 @@
+#!/bin/bash
+
+
+## get connected monitors
+[ `xrandr | grep HDMI1 | awk '{ print $2 }'` = "connected" ] && [ -n "`xrandr | grep HDMI1 | grep "[0-9]*x[0-9]*+[0-9]*+[0-9]*"`" ]
+HDMICONN=$?
+
+[ `xrandr | grep LVDS1 | awk '{ print $2 }'` = "connected" ] && [ -n "`xrandr | grep LVDS1 | grep "[0-9]*x[0-9]*+[0-9]*+[0-9]*"`" ]
+LVDSCONN=$?
+
+
+## get current desktops counts
+HDMIDESKS=`bspc query -D -m HDMI1 | wc -l`
+LVDSDESKS=`bspc query -D -m LVDS1 | wc -l`
+
+## no desktops - start up
+if [ $HDMIDESKS -eq 0 ] && [ $LVDSDESKS -eq 0 ]
+then
+    if [ $HDMICONN -eq 0 ]
+    then
+        echo "bspc monitor HDMI1 -d 1 2 3 4 5-dev 6-music 7-gimp 8-vbox 9-chat"
+        if [ $LVDSCONN -eq 0 ]
+        then
+            echo "bspc monitor LVDS1 -d 10"
+        fi
+    else
+        echo "bspc monitor LVDS1 -d 1 2 3 4 5-dev 6-music 7-gimp 8-vbox 9-chat"
+    fi
+
+## we have desktops - check the monitors
+# both monitors connected
+# - HDMI primary with 9 desktops
+# - LVDS secondary with 1 desktop
+elif [ $HDMICONN -eq 0 ] && [ $LVDSCONN -eq 0 ]
+then
+    echo "two monitors"
+    if [ $HDMIDESKS -eq 9 ]
+    then
+        # ensure LVDS has desktop 10
+        echo "bspc monitor LVDS1 -d 10"
+    else
+        # we need to move the desktops to HDMI
+        if [ $LVDSDESKS -ne 9 ]
+        then
+            # something is wrong - abort
+            exit 1
+        fi
+        
+        # ensure HDMI has desktop 10
+        echo "bspc monitor HDMI1 -d 10"
+        
+        # swap desktops
+        echo "swap_desktops LVDS1 HDMI1 9 1"
+    fi
+# HDMI only
+elif [ $HDMICONN -eq 0 ] && [ $LVDSCONN -ne 0 ]
+then
+    echo "HDMI only"
+    if [ $HDMIDESKS -eq 9 ]
+    then
+        # remove LVDS if needed
+        if [ $LVDSDESKS -eq 1 ]
+        then
+            echo "bspc wm -r LVDS1"
+            echo "bspc wm -o"
+        fi
+    else
+        # we need to move the desktops to HDMI
+        if [ $LVDSDESKS -ne 9 ]
+        then
+            # something is wrong - abort
+            exit 1
+        fi 
+          
+        # add a desktop to HDMI if needed
+        if [ $HDMIDESKS -eq 0 ]
+        then
+            echo "bspc monitor HDMI1 -d 10"
+        fi
+          
+        # swap desktops
+        echo "swap_desktops LVDS1 HDMI1 9 1"
+        
+        # remove the desktop from LVDS
+        echo "bspc desktop LVDS1:^1 -r"
+    fi
+# LVDS only or no monitor
+else
+    echo "LVDS only or nothing"
+    if [ $LVDSDESKS -eq 9 ]
+    then
+        # remove the desktop from HDMI if needed
+        if [ $HDMIDESKS -eq 1 ]
+        then
+            echo "bspc wm -r HDMI1"
+            echo "bspc wm -o"
+        fi
+    else
+        # we need to move the desktops to LVDS
+        if [ $HDMIDESKS -ne 9 ]
+        then
+            # something is wrong - abort
+            exit 1
+        fi
+
+        # ensure LVDS has desktop 10
+        echo "bspc monitor LVDS1 -d 10"
+
+        # swap desktops
+        echo "swap_desktops HDMI1 LVDS1 9 1"
+
+        # remove the desktop from HDMI
+        echo "bspc wm -r HDMI1"
+        echo "bspc wm -o"
+    fi
+fi

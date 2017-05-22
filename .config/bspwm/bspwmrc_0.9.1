@@ -1,0 +1,76 @@
+#! /bin/sh
+
+
+## config options
+bspc config border_width            1
+bspc config top_padding             24
+bspc config window_gap              0
+bspc config split_ratio             0.53
+bspc config borderless_monocle      true
+bspc config gapless_monocle         true
+bspc config focus_follows_pointer   true
+bspc config history_aware_focus     true
+bspc config auto_cancel             true
+
+## desktops and monitors
+# keep these false to avoid merging desktops in current monitor
+#bspc config remove_disabled_monitors false
+#bspc config remove_unplugged_monitors false
+
+if [ `xrandr | grep HDMI1 | awk '{ print $2 }'` = "connected" ]; then
+    bspc monitor HDMI1 -d 1 2 3 4 5-dev 6-music 7-gimp 8-vbox 9-chat
+    bspc monitor LVDS1 -d 10
+    
+    if [ `bspc query -D | head -n 1` = "10" ]; then
+        bspc monitor HDMI1 -s LVDS1
+    fi
+else
+    bspc monitor LVDS1 -d 1 2 3 4 5-dev 6-music 7-gimp 8-vbox 9-chat
+fi
+#configure_monitors
+
+
+#~ bspc desktop ^2 -l monocle
+
+## Rules
+bspc rule -a smplayer state=floating
+bspc rule -a MPlayer state=floating
+bspc rule -a VirtualBox desktop=^8 state=floating
+bspc rule -a xine state=floating
+bspc rule -a Gimp desktop=^7
+bspc rule -a Gimp-2.8 desktop=^7
+bspc rule -a rdesktop desktop=^8 state=floating center=on
+bspc rule -a Skype desktop=^9 state=floating
+bspc rule -a QtCreator desktop=^5
+bspc rule -a Audacious desktop=^6
+bspc rule -a QMP desktop=^6
+bspc rule -a qBittorrent desktop=^6
+bspc rule -a XTerm state=floating
+bspc rule -a TeamViewer state=floating
+bspc rule -a konsole state=floating
+bspc rule -a Hugin state=floating
+bspc rule -a PTBatcherGUI state=floating
+bspc rule -a \* layer=below
+bspc rule -a plasmashell layer=normal state=floating
+bspc rule -a plasmawindowed state=floating
+bspc rule -a Xsane state=floating
+bspc config external_rules_command "$(which external_rules)"
+
+## colors
+bspc config focused_border_color "#0e9ffb"
+bspc config normal_border_color "#303030"
+bspc config active_border_color "#00ff00"
+#~ bspc config focused_locked_border_color "#00C7D8"
+#~ bspc config normal_locked_border_color "#708D8F"
+#~ bspc config active_locked_border_color "#808C8D"
+#~ bspc config urgent_border_color "#cb4b16"
+#~ bspc config presel_border_color "#cb4b16"
+
+
+# wm name [useful for some programs]
+wmname KDE
+
+# Autostart apps
+fullscreen_monitor &
+
+

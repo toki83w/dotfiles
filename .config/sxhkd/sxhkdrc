@@ -1,0 +1,282 @@
+############################################
+#                general
+############################################
+
+
+# Exit bspwm
+#super + control + alt + shift + q
+#    bspwm_quit
+
+
+# Make sxhkd reload its configuration files
+super + control + Escape
+    pkill -USR1 -x sxhkd
+
+
+
+
+
+
+
+############################################
+#                 nodes
+############################################
+
+
+# close focused node
+super + control + c
+    bspc node -c
+
+
+# move into biggest space
+super + Return
+    bspc node -s biggest
+
+
+
+# toggle tiled node
+super + alt + t
+    bspc node -t tiled
+
+
+# toggle floating node
+super + alt + f
+    bspc node -t floating
+
+
+
+# preselect the splitting area
+super + control + alt + {Left,Down,Up,Right}
+    bspc node -p ~{west,south,north,east}
+
+
+# resize nodes
+#super + alt + {Left,Right}
+#    bspc node @west -r {-10,+10}
+#super + alt + {Down,Up}
+#    bspc node @north -r {+10,-10}
+    
+#super + alt + shift + {Left,Right}
+#    bspc node @east -r {-10,+10}
+#super + alt + shift + {Down,Up}
+#    bspc node @south -r {+10,-10}
+
+# expand a node by moving one of its side outward
+super + alt + {Left,Down,Up,Right}
+    bspc node -z {left -20 0,bottom 0 20,top 0 -20,right 20 0}
+
+# contract a node by moving one of its side inward
+super + alt + shift + {Left,Down,Up,Right}
+    bspc node -z {right -20 0,top 0 20,bottom 0 -20,left 20 0}
+
+# move a floating node
+#super + alt + shift + {Left,Down,Up,Right}
+#bspc node -v {-20 0,0 20,0 -20,20 0}
+
+
+# focus nodes forward backward
+super + {_,shift + }Tab
+    bspc node -f {next,prev}.local
+
+
+# focus or swap nodes [second part is for monocle]
+super + {_,shift + }{Left,Down,Up,Right}
+    bspc node -{f,s} {west,south,north,east}.local || bspc node -{f,s} {prev,prev,next,next}.local
+
+
+# swap with last node
+super + shift + grave
+    bspc node -s last
+
+
+
+
+
+
+############################################
+#               desktops
+############################################
+
+
+# cycle desktops
+super + control + {Left,Right}
+    bspc desktop -f {prev,next}
+
+
+# next layout (monocle or tiled)
+super + space
+    bspc desktop -l next
+
+
+
+# balance the desktop (adjust split area)
+super + alt + b
+    bspc node @focused:/ -B
+
+
+# equalize the desktop (adjust split area)
+super + alt + e
+    bspc node @focused:/ -E
+
+
+
+# rotate the leaves of the tree
+super + bracketright
+    bspc node @south -R 90 || bspc node @west -R 90 || bspc node @north -R 90 || bspc node @east -R 90
+super + bracketleft
+    bspc node @north -R 270 || bspc node @west -R 270 || bspc node @south -R 270 || bspc node @east -R 270
+
+
+# flip the desktop tree
+super + shift + bracket{left,right}
+    bspc node @focused:/ -F {horizontal,vertical}
+
+
+
+# adjust node gap
+super + alt + {KP_Add, KP_Subtract}
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+
+
+
+
+
+
+############################################
+#          nodes and desktops
+############################################
+
+
+# focus desktop / send node to desktop
+super + {_,shift + }{1-9,0}
+    bspc {desktop -f,node -d} ^{1-9,10}
+
+
+
+
+
+
+############################################
+#               mouse
+############################################
+
+
+# grab focus on mouse click
+~button1
+    bspc node -f pointed
+
+
+# cycle desktops
+super + button{4,5}
+    bspc desktop -f {prev,next}
+
+
+
+
+
+
+############################################
+#            app shortcuts
+############################################
+
+
+# Launch dmenu
+super + a
+    krunner
+
+
+# Start a terminal
+super + control + Return
+    konsole
+
+
+# Launch firefox
+super + f
+    firefox
+
+
+# Launch file manager
+super + z
+    dolphin
+
+
+
+
+
+
+############################################
+#               system
+############################################
+
+
+# Go to sleep
+super + control + F1
+    systemctl suspend
+
+
+# Reboot
+super + control + F11
+    systemctl reboot
+
+
+# Shutdown
+super + control + F12
+    systemctl poweroff
+
+
+
+
+# Laptop mode
+super + control + 1
+    output_laptop
+
+
+# Monitor mode
+super + control + 2
+    output_monitor
+
+
+# Dualhead mode
+super + control + 3
+    output_dualhead
+
+
+
+
+# Mute volume
+#XF86AudioMute
+#    amixer -q set Master toggle
+
+
+# Decrease volume
+#XF86AudioLowerVolume
+#    amixer -q set Master 2%-
+#super + alt + button5
+#    amixer -q set Master 2%-
+
+
+# Increase volume
+#XF86AudioRaiseVolume
+#    amixer -q set Master 2%+
+#super + alt + button4
+#    amixer -q set Master 2%+
+
+
+
+# Decrease backlight
+#XF86MonBrightnessDown
+super + control + F5
+    xbacklight -20
+
+
+# Increase backlight
+#XF86MonBrightnessUp
+super + control + F6
+    xbacklight +20
+
+
+
+# Screen saver
+super + control + s
+    sson
+

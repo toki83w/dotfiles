@@ -1,0 +1,23 @@
+#! /bin/sh
+
+#~ wid=$1
+class=$2
+#~ instance=$3
+
+#~ # all new windows [except qtcreator] on desktop 5 become floating
+#~ if [ `bspc query -D -d focused` == "5-dev" ] && [ "$class" != QtCreator ]; then
+    #~ echo "floating = on"
+#~ fi
+
+#~ # all new windows [except gimp] on desktop 7 become floating
+#~ if [ `bspc query -D -d focused` == "7-gimp" ] && [ "$class" != Gimp ] && [ "$class" != Gimp-2.8 ]; then
+    #~ echo "floating = on"
+#~ fi
+
+
+# all new windows [except qtcreator] on desktop 5 become floating
+# all new windows [except gimp] on desktop 7 become floating
+# all new windows on desktop 8 become floating
+if [[ (`bspc query -D --names -d focused` == "5-dev" && "$class" != QtCreator) || (`bspc query -D --names -d focused` == "7-gimp" && "$class" != Gimp && "$class" != Gimp-2.8) || (`bspc query -D --names -d focused` == "8-vbox") ]]; then
+    echo "state=floating"
+fi

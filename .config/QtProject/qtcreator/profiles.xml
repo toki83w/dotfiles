@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE QtCreatorProfiles>
+<!-- Written by QtCreator 4.2.2, 2017-05-19T21:57:01. -->
+<qtcreator>
+ <data>
+  <variable>Profile.0</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">false</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <value type="QString" key="Android.GdbServer.Information"></value>
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator">CodeBlocks</value>
+     <value type="QString" key="Generator">Unix Makefiles</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">{e0618fb0-2b91-4d1b-b980-3387686b798b}</value>
+    <value type="QString" key="Debugger.Information">{52301c3f-1e92-446a-9156-88cdd0fe458a}</value>
+    <value type="QString" key="PE.Profile.Device">Desktop Device</value>
+    <value type="QByteArray" key="PE.Profile.DeviceType">Desktop</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
+    <value type="QString" key="PE.Profile.SysRoot"></value>
+    <value type="QByteArray" key="PE.Profile.ToolChain">{ae82ab60-dde7-40f0-b7d5-a0362ac2001d}</value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChains">
+     <value type="QByteArray" key="C">{29ab41c3-ff95-4368-a993-f9d31763f14a}</value>
+     <value type="QString" key="Cxx">{ae82ab60-dde7-40f0-b7d5-a0362ac2001d}</value>
+    </valuemap>
+    <value type="QString" key="QtPM4.mkSpecInformation"></value>
+    <value type="int" key="QtSupport.QtInformation">4</value>
+   </valuemap>
+   <value type="QString" key="PE.Profile.Icon">:///DESKTOP///</value>
+   <value type="QString" key="PE.Profile.Id">{b9f3fff6-4897-4ac4-84e8-455777b802d0}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Desktop</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo"/>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.1</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">true</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <value type="QString" key="Android.GdbServer.Information">/opt/android-ndk/prebuilt/android-arm/gdbserver/gdbserver</value>
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator">CodeBlocks</value>
+     <value type="QString" key="Generator">Unix Makefiles</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">{e0618fb0-2b91-4d1b-b980-3387686b798b}</value>
+    <value type="QString" key="Debugger.Information">{186178cb-0707-4124-8602-715c1696158e}</value>
+    <value type="QString" key="PE.Profile.Device">Android Device</value>
+    <value type="QString" key="PE.Profile.DeviceType">Android.Device.Type</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
+    <value type="QString" key="PE.Profile.SysRoot"></value>
+    <value type="QString" key="PE.Profile.ToolChain">{5367bd4e-89b5-4215-9e2a-8a38ce6b5205}</value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChains">
+     <value type="QByteArray" key="C"></value>
+     <value type="QString" key="Cxx">{5367bd4e-89b5-4215-9e2a-8a38ce6b5205}</value>
+    </valuemap>
+    <value type="QString" key="QtPM4.mkSpecInformation"></value>
+    <value type="int" key="QtSupport.QtInformation">8</value>
+   </valuemap>
+   <value type="QString" key="PE.Profile.Icon">:/android/images/QtAndroid.png</value>
+   <value type="QString" key="PE.Profile.Id">{189c083c-9575-408b-a472-8e626662d5de}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Android_Qt5.6_Broken</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo">
+    <value type="QString">CMakeProjectManager.CMakeKitInformation</value>
+    <value type="QString">QtPM4.mkSpecInformation</value>
+    <value type="QString">QtSupport.QtInformation</value>
+    <value type="QString">PE.Profile.ToolChain</value>
+    <value type="QString">Debugger.Information</value>
+    <value type="QString">PE.Profile.Environment</value>
+    <value type="QString">PE.Profile.SysRoot</value>
+    <value type="QString">PE.Profile.Device</value>
+    <value type="QString">PE.Profile.DeviceType</value>
+    <value type="QString">CMake.ConfigurationKitInformation</value>
+    <value type="QString">Android.GdbServer.Information</value>
+    <value type="QString">CMake.GeneratorKitInformation</value>
+   </valuelist>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.2</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">false</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource"></value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <value type="QString" key="Android.GdbServer.Information">/opt/android-ndk/prebuilt/android-arm/gdbserver/gdbserver</value>
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator">CodeBlocks</value>
+     <value type="QString" key="Generator">Unix Makefiles</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">{e0618fb0-2b91-4d1b-b980-3387686b798b}</value>
+    <value type="QString" key="Debugger.Information">{f51817b9-f14e-47c9-b857-4bb0beb5126d}</value>
+    <value type="QString" key="PE.Profile.Device">Android Device</value>
+    <value type="QString" key="PE.Profile.DeviceType">Android.Device.Type</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
+    <value type="QString" key="PE.Profile.SysRoot"></value>
+    <value type="QString" key="PE.Profile.ToolChain">{5367bd4e-89b5-4215-9e2a-8a38ce6b5205}</value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChains">
+     <value type="QByteArray" key="C"></value>
+     <value type="QString" key="Cxx">{5367bd4e-89b5-4215-9e2a-8a38ce6b5205}</value>
+    </valuemap>
+    <value type="QString" key="QtPM4.mkSpecInformation"></value>
+    <value type="int" key="QtSupport.QtInformation">8</value>
+   </valuemap>
+   <value type="QString" key="PE.Profile.Icon">:/android/images/QtAndroid.png</value>
+   <value type="QString" key="PE.Profile.Id">{0b9507e8-3137-4d85-9b0c-2defd56a242f}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Android_Qt5.6</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo">
+    <value type="QString">QtPM4.mkSpecInformation</value>
+    <value type="QString">QtSupport.QtInformation</value>
+    <value type="QString">PE.Profile.ToolChain</value>
+    <value type="QString">Debugger.Information</value>
+    <value type="QString">PE.Profile.Environment</value>
+    <value type="QString">PE.Profile.SysRoot</value>
+    <value type="QString">PE.Profile.Device</value>
+    <value type="QString">PE.Profile.DeviceType</value>
+    <value type="QString">Android.GdbServer.Information</value>
+   </valuelist>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.3</variable>
+  <valuemap type="QVariantMap">
+   <value type="bool" key="PE.Profile.AutoDetected">true</value>
+   <value type="QString" key="PE.Profile.AutoDetectionSource">AndroidConfiguration</value>
+   <valuemap type="QVariantMap" key="PE.Profile.Data">
+    <value type="QString" key="Android.GdbServer.Information">/opt/android-ndk/prebuilt/android-arm/gdbserver/gdbserver</value>
+    <valuelist type="QVariantList" key="CMake.ConfigurationKitInformation">
+     <value type="QString">QT_QMAKE_EXECUTABLE:STRING=%{Qt:qmakeExecutable}</value>
+     <value type="QString">CMAKE_PREFIX_PATH:STRING=%{Qt:QT_INSTALL_PREFIX}</value>
+     <value type="QString">CMAKE_C_COMPILER:STRING=%{Compiler:Executable:C}</value>
+     <value type="QString">CMAKE_CXX_COMPILER:STRING=%{Compiler:Executable:Cxx}</value>
+    </valuelist>
+    <valuemap type="QVariantMap" key="CMake.GeneratorKitInformation">
+     <value type="QString" key="ExtraGenerator">CodeBlocks</value>
+     <value type="QString" key="Generator">Unix Makefiles</value>
+     <value type="QString" key="Platform"></value>
+     <value type="QString" key="Toolset"></value>
+    </valuemap>
+    <value type="QString" key="CMakeProjectManager.CMakeKitInformation">{e0618fb0-2b91-4d1b-b980-3387686b798b}</value>
+    <value type="QString" key="Debugger.Information">{186178cb-0707-4124-8602-715c1696158e}</value>
+    <value type="QString" key="PE.Profile.Device">Android Device</value>
+    <value type="QString" key="PE.Profile.DeviceType">Android.Device.Type</value>
+    <valuelist type="QVariantList" key="PE.Profile.Environment"/>
+    <value type="QString" key="PE.Profile.SysRoot"></value>
+    <valuemap type="QVariantMap" key="PE.Profile.ToolChains">
+     <value type="QByteArray" key="C">{98c48c22-0dcf-4210-b050-f23b6c689d56}</value>
+     <value type="QByteArray" key="Cxx">{7455948a-aa3a-4486-936e-a4dd92ddcbfd}</value>
+    </valuemap>
+    <value type="QString" key="QtPM4.mkSpecInformation"></value>
+    <value type="int" key="QtSupport.QtInformation">8</value>
+   </valuemap>
+   <value type="QString" key="PE.Profile.Icon"></value>
+   <value type="QString" key="PE.Profile.Id">{119447d9-0105-4273-a40c-d85f3a14a607}</value>
+   <valuelist type="QVariantList" key="PE.Profile.MutableInfo"/>
+   <value type="QString" key="PE.Profile.Name">Android for armeabi-v7a (GCC 4.9, Qt 5.6.0)</value>
+   <value type="bool" key="PE.Profile.SDK">false</value>
+   <valuelist type="QVariantList" key="PE.Profile.StickyInfo">
+    <value type="QString">CMakeProjectManager.CMakeKitInformation</value>
+    <value type="QString">QtSupport.QtInformation</value>
+    <value type="QString">QtPM4.mkSpecInformation</value>
+    <value type="QString">Debugger.Information</value>
+    <value type="QString">PE.Profile.Environment</value>
+    <value type="QString">PE.Profile.SysRoot</value>
+    <value type="QString">PE.Profile.ToolChains</value>
+    <value type="QString">PE.Profile.Device</value>
+    <value type="QString">PE.Profile.DeviceType</value>
+    <value type="QString">Android.GdbServer.Information</value>
+    <value type="QString">CMake.ConfigurationKitInformation</value>
+    <value type="QString">CMake.GeneratorKitInformation</value>
+   </valuelist>
+  </valuemap>
+ </data>
+ <data>
+  <variable>Profile.Count</variable>
+  <value type="int">4</value>
+ </data>
+ <data>
+  <variable>Profile.Default</variable>
+  <value type="QString">{b9f3fff6-4897-4ac4-84e8-455777b802d0}</value>
+ </data>
+ <data>
+  <variable>Version</variable>
+  <value type="int">1</value>
+ </data>
+</qtcreator>

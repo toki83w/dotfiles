@@ -1,0 +1,5 @@
+#!/bin/bash
+
+kill `ps -A | grep bspwm_panel.sh | awk '{ print $1 }'`
+
+bspc quit
