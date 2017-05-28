@@ -1,0 +1,249 @@
+[colors]
+background = #222
+background-alt = #444
+foreground = #dfdfdf
+foreground-alt = #555
+primary = #ffb52a
+secondary = #e60053
+alert = #bd2c40
+focused = #ffb52a
+
+[bar/main]
+monitor = ${env:MAINMON:}
+width = 100%
+height = 22
+fixed-center = false
+
+background = ${colors.background}
+foreground = ${colors.foreground}
+
+module-margin = 1
+
+font-0 = NotoMono-Regular:size=10;2
+font-1 = FontAwesome:size=12;3
+font-2 = Material\-Design\-Iconic\-Font:size=12;3
+font-3 = Monospace-Regular:size=8;2
+
+separator = |
+
+modules-left = bspwm
+modules-center = xtitle
+modules-right = memory cpu battery volume xkeyboard date
+
+tray-position = right
+tray-padding = 2
+tray-background = ${colors.background}
+tray-detached=false
+
+wm-restack = bspwm
+
+;override-redirect = true
+
+xtitle-exec = xtitleloc $MAINMON
+
+
+
+[bar/two]
+inherit=bar/main
+
+monitor=${env:MON2:}
+modules-right = date
+tray-position = none
+xtitle-exec = xtitleloc $MON2
+
+[bar/three]
+inherit=bar/main
+
+monitor=${env:MON3:}
+modules-right = date
+tray-position = none
+xtitle-exec = xtitleloc $MON3
+
+
+
+[module/bspwm]
+type = internal/bspwm
+
+format = <label-state>| <label-mode>
+
+scroll-up = bspwm-desknext
+scroll-down = bspwm-deskprev
+
+label-focused = %icon%
+label-focused-background = ${colors.background-alt}
+label-focused-foreground = ${colors.focused}
+label-focused-padding = 2
+
+label-occupied = %icon%
+label-occupied-padding = 1
+
+label-urgent = %icon%
+label-urgent-background = ${colors.alert}
+label-urgent-padding = 1
+
+label-empty = %icon%
+label-empty-foreground = ${colors.foreground-alt}
+label-empty-padding = 1
+
+ws-icon-0 = web;
+ws-icon-1 = dev;
+ws-icon-2 = tv;
+ws-icon-3 = git;
+ws-icon-default = 
+
+label-monocle = 
+label-monocle-font = 3
+label-monocle-foreground = ${colors.focused}
+label-tiled = 
+label-tiled-font = 3
+label-tiled-foreground = ${colors.focused}
+
+[module/cpu]
+type = internal/cpu
+interval = 0.5
+
+format = %{A1:dzen_cpu:}<ramp-coreload>%{A}
+
+ramp-coreload-0 = ▁
+ramp-coreload-0-font = 4
+ramp-coreload-0-foreground = #ffffff
+ramp-coreload-1 = ▂
+ramp-coreload-1-font = 4
+ramp-coreload-1-foreground = #ffffff
+ramp-coreload-2 = ▃
+ramp-coreload-2-font = 4
+ramp-coreload-2-foreground = #ffffff
+ramp-coreload-3 = ▄
+ramp-coreload-3-font = 4
+ramp-coreload-3-foreground = #ffffff
+ramp-coreload-4 = ▅
+ramp-coreload-4-font = 4
+ramp-coreload-4-foreground = #ffffff
+ramp-coreload-5 = ▆
+ramp-coreload-5-font = 4
+ramp-coreload-5-foreground = #ff3b51
+ramp-coreload-6 = ▇
+ramp-coreload-6-font = 4
+ramp-coreload-6-foreground = #ff3b51
+
+
+[module/memory]
+type = internal/memory
+
+format = %{A1:dzen_mem:}<bar-used>%{A}
+
+bar-used-width = 5
+bar-used-fill = █
+bar-used-fill-font = 4
+bar-used-fill-foreground = ${colors.foreground}
+bar-used-empty = █
+bar-used-empty-font = 4
+bar-used-empty-foreground = ${colors.foreground-alt}
+bar-used-indicator = █
+bar-used-indicator-font = 4
+bar-used-indicator-foreground = ${colors.foreground}
+
+
+
+[module/date]
+type = internal/date
+interval = 5
+
+date = %a %b %d
+time = %H:%M
+
+label = "%{A1:gsimplecal:}%date%%{A}, %time% "
+
+
+[module/volume]
+type = internal/volume
+
+format-muted =  <label-muted>
+format-muted-foreground = ${colors.foreground-alt}
+label-muted = %{A3:pavucontrol:}%percentage:2:3%%%{A}
+
+format-volume =  <label-volume>
+label-volume = %{A3:pavucontrol:}%percentage:2:3%%%{A}
+
+
+
+
+[module/battery]
+type = internal/battery
+battery = BAT0
+adapter = AC
+full-at = 95
+
+format-charging = %{A1:dzen_battery:}%{A}
+format-discharging = %{A1:dzen_battery:}<ramp-capacity>%{A}
+format-full = %{A1:dzen_battery:}%{A}
+
+ramp-capacity-0 = 
+ramp-capacity-1 = 
+ramp-capacity-2 = 
+ramp-capacity-3 = 
+ramp-capacity-4 = 
+ramp-capacity-foreground = ${colors.foreground}
+ramp-capacity-1-foreground = #ff0000
+ramp-capacity-0-foreground = #ff0000
+ramp-capacity-2-foreground = #ffb52a
+
+click-left = (echo "head"; upower -i $(upower -e | grep BAT) | grep -E "state|to\ full|percentage|to\ empty") | dzen2 -l 3 -m -p -e 'onstart=uncollapse;button1=exit' -bg '#222' -fg '#dfdfdf' -fn Monospace-Regular:size=8 -y 22 -tw 300 -w 300 -x $(( $(xdotool getmouselocation 2>/dev/null | cut -d\  -f1 - | cut -d: -f2)-150 ))
+
+
+[module/temperature]
+type = internal/temperature
+thermal-zone = 0
+warn-temperature = 60
+
+format = <ramp> <label>
+format-underline = #f50a4d
+format-warn = <ramp> <label-warn>
+format-warn-underline = ${self.format-underline}
+
+label = %temperature%
+label-warn = %temperature%
+label-warn-foreground = ${colors.secondary}
+
+ramp-0 = 
+ramp-1 = 
+ramp-2 = 
+ramp-foreground = ${colors.foreground-alt}
+
+
+[module/xtitle]
+type = custom/script
+
+exec = ${root.xtitle-exec}
+tail = true
+
+scroll-up = bspc node -f next.local
+scroll-down = bspc node -f prev.local
+
+click-left = dzen_pager
+
+[module/xkeyboard]
+type = internal/xkeyboard
+blacklist-0 = num lock
+
+label-layout = %layout%
+
+
+
+[settings]
+screenchange-reload = true
+;compositing-background = xor
+;compositing-background = screen
+;compositing-foreground = source
+;compositing-border = over
+
+[global/wm]
+margin-top = 0
+margin-bottom = 0
+
+
+
+
+
+
+

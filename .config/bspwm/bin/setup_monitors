@@ -1,0 +1,115 @@
+#!/bin/bash
+
+
+##############################################
+# names
+
+LAP=eDP-1
+VGA=DP-3
+HDMI=DP-2
+
+
+##############################################
+# connection states
+
+VGACONN=`xrandr | grep ^$VGA | awk '{ print $2 }'`
+HDMICONN=`xrandr | grep ^$HDMI | awk '{ print $2 }'`
+
+
+##############################################
+# configuration
+
+CONF="l"
+if [ "$VGACONN" = "connected" ]; then
+    if [ "$HDMICONN" = "connected" ]; then
+        CONF="vhl"
+    else
+        CONF="vl"
+    fi
+elif [ "$HDMICONN" = "connected" ]; then
+    CONF="hl"
+fi
+
+
+##############################################
+# optional reset
+
+if [ "$1" = "r" ]; then
+    xrandr --output $LAP --off --output $VGA --off --output $HDMI --off
+fi
+
+
+##############################################
+# xrandr
+
+XRANDR="--output $LAP --auto --scale .5x.5"
+if [ "$CONF" = "l" ]; then
+    export MAINMON=$LAP
+elif [ "$CONF" = "vl" ]; then
+    XRANDR=$XRANDR" --output $VGA --auto --left-of $LAP"
+    export MAINMON=$VGA
+    export MON2=$LAP
+elif [ "$CONF" = "hl" ]; then
+    XRANDR=$XRANDR" --output $HDMI --auto --left-of $LAP"
+    export MAINMON=$HDMI
+    export MON2=$LAP
+elif [ "$CONF" = "vhl" ]; then
+    XRANDR=$XRANDR" --output $HDMI --auto --left-of $LAP --output $VGA --auto --left-of $HDMI"
+    export MAINMON=$HDMI
+    export MON2=$LAP
+    export MON3=$VGA
+fi
+
+xrandr $XRANDR
+
+
+##############################################
+# desktops
+
+if [ "$CONF" = "l" ]; then
+    bspc monitor eDP-1 -d web dev git tv i
+elif [ "$CONF" = "vl" ]; then
+    bspc monitor eDP-1 -d i tv
+    bspc monitor DP-3  -d web dev git ii
+elif [ "$CONF" = "hl" ]; then
+    bspc monitor eDP-1 -d i tv
+    bspc monitor DP-2  -d web dev git ii
+elif [ "$CONF" = "vhl" ]; then
+    bspc monitor eDP-1 -d i ii
+    bspc monitor DP-2  -d dev git iii
+    bspc monitor DP-3  -d web tv
+fi
+
+bspc desktop web -l monocle
+
+
+
+##############################################
+# orphan nodes
+
+bspc wm -o
+
+
+
+##############################################
+# bars
+
+killall polybar
+killall nm-applet
+
+polybar main -r &
+
+if [ -n "$MON2" ]; then
+    polybar two -r &
+fi
+if [ -n "$MON3" ]; then
+    polybar three -r &
+fi
+
+nm-applet &
+
+
+##############################################
+# background
+
+fehbg

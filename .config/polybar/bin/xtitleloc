@@ -1,0 +1,2 @@
+#!/bin/bash
+xtitle -s | { while read -r T; do [[ $(bspc query -D -d focused -m $1) = "" ]] && echo "" || echo $T; done }

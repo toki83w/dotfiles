@@ -1,0 +1,11 @@
+#!/bin/bash
+
+
+D=`upower -i $(upower -e | grep BAT) | grep -E "state|to\ full|percentage|to\ empty"`
+
+
+LINES=`echo "$D" | wc -l`
+WIDTH=350
+. dzen_config
+
+(echo "Battery"; echo "$D") | dzen2 $OPTS

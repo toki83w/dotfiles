@@ -1,0 +1,36 @@
+#!/bin/bash
+
+FN=/tmp/dzen_pager.$$
+
+# print nodes to file
+(bspc query -N -d focused | while read n; do
+    T=`xtitle $n`
+    if [ -n "$T" ]; then
+        echo "$n$T";
+    fi
+done) > $FN
+
+LINES=`cat $FN | wc -l`
+WIDTH=680
+ACT='onstart=uncollapse,grabkeys;button1=menuprint,exit;enterslave=grabkeys;leaveslave=ungrabkeys,exit;key_Escape=exit'
+FONT=NotoMono-Regular:size=12
+. dzen_config
+
+(
+i=1
+echo "Local nodes";
+cat $FN | while read l; do
+    ID=`echo $l | cut -c -10`
+    T=`echo $l | cut -c 11-`
+    echo "  $i: `wicon $ID /tmp/$$.$ID.xpm` `echo $T | awk -v len=58 '{ if (length($0) > len) print substr($0, 1, len-1) "~"; else print; }'`"
+    ((i++))
+done
+) | dzen2 $OPTS -m \
+  | cut -d: -f1 \
+  | xargs -I % head -% $FN \
+  | tail -1 \
+  | cut -c -10 \
+  | xargs bspc node -f
+
+rm $FN
+rm /tmp/$$*

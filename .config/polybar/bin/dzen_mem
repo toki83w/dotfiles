@@ -1,0 +1,8 @@
+#!/bin/bash
+
+LINES=2
+WIDTH=260
+. dzen_config
+
+
+(echo "Memory"; free -m | head -n 2 | cut -c 15-43) | dzen2 $OPTS -sa c

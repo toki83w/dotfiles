@@ -1,0 +1,128 @@
+#### bspwm ####
+
+
+sudo apt-get install git \
+                      xcb \
+                      libxcb-util0-dev \
+                      libxcb-ewmh-dev \
+                      libxcb-randr0-dev \
+                      libxcb-icccm4-dev \
+                      libxcb-keysyms1-dev \
+                      libxcb-xinerama0-dev \
+                      libasound2-dev \
+                      gcc \
+                      make \
+                      libxcb-xtest0-dev \
+                      libxft-dev \
+                      libx11-xcb-dev
+
+
+git clone https://github.com/baskerville/bspwm.git
+git clone https://github.com/baskerville/sxhkd.git
+git clone https://github.com/baskerville/sutils.git
+git clone https://github.com/baskerville/xtitle.git
+git clone https://github.com/baskerville/xdo.git
+
+cd bspwm/ && make && sudo make install
+cd ../sxhkd/ && make && sudo make install
+cd ../sutils/ && make && sudo make install
+cd ../xtitle/ && make && sudo make install
+cd ../xdo/ && make && sudo make install
+
+
+
+sudo cp bspwm/contrib/freedesktop/bspwm.desktop /usr/share/xsessions
+
+
+~/.config/sxhkd/sxkhdrc
+~/.config/bspwm/bspwmrc [executable]
+
+
+
+#### polybar ####
+
+
+git clone --recursive https://github.com/Airblader/xcb-util-xrm.git
+sudo apt install xutils-dev dh-autoreconf 
+./autogen.sh && make && sudo make install
+
+
+sudo apt install cmake cmake-data libcairo2-dev libxcb1-dev libxcb-ewmh-dev libxcb-icccm4-dev libxcb-image0-dev libxcb-randr0-dev libxcb-util0-dev libxcb-xkb-dev pkg-config python-xcbgen xcb-proto libxcb-xrm-dev libasound2-dev libiw-dev libcurl4-openssl-dev
+git clone --branch 3.0.5 --recursive https://github.com/jaagr/polybar
+mkdir polybar/build
+cd polybar/build
+cmake ..
+sudo make install
+
+.config/polybar/config
+
+
+
+#### rofi ####
+
+
+sudo apt-get install flex bison libxkbcommon-dev libxkbcommon-x11-dev
+sudo apt-get install libpango1.0-dev libpangocairo-1.0-0 libcairo2-dev libstartup-notification0-dev
+git clone https://github.com/DaveDavenport/rofi
+cd rofi/
+git submodule update --init
+autoreconf -i
+mkdir build
+cd build
+../configure --disable-check
+make
+make install
+
+
+rofi -modi windowcd -show windowcd
+rofi -modi run -show run
+
+
+
+#### fonts ####
+
+font-awesome-4.7.0.zip / material-design-iconic-font.zip
+gnome-font-viewer  --> install
+
+
+
+#### other apps ####
+
+sudo apt install xdotool
+
+git clone https://github.com/toki83w/dzen.git
+git clone https://github.com/toki83w/xwicon.git
+
+
+
+
+
+
+### not needed
+
+
+sudo apt-get install rxvt-unicode
+
+sudo apt-get install compton
+~/compton.conf
+
+
+git clone https://github.com/stark/siji
+cd siji
+./install.sh
+
+in bspwmrc [?]:
+xset +fp /home/luca/.fonts
+xset fp rehash
+
+wget https://github.com/hbin/top-programming-fonts/raw/master/Monaco-Linux.ttf
+sudo fc-cache -fv
+
+sudo apt-get install feh
+
+disable compton
+
+
+
+sudo ln -s /etc/fonts/conf.avail/70-force-bitmaps.conf /etc/fonts/conf.d/
+sudo unlink /etc/fonts/conf.d/70-no-bitmaps.conf

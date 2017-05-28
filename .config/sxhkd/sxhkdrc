@@ -1,0 +1,276 @@
+############################################
+#                general
+############################################
+
+
+# Exit bspwm
+super + control + alt + shift + q
+    bspc quit
+
+
+# Make sxhkd reload its configuration files
+super + control + Escape
+	pkill -USR1 -x sxhkd
+
+
+
+
+
+
+
+############################################
+#                windows
+############################################
+
+
+# close focused window
+super + control + c
+    bspc node -c
+
+
+# move into biggest space
+super + Return
+    bspc node -s biggest
+
+
+
+# toogle tiled
+super + alt + t
+    bspc node -t tiled
+
+
+# toggle floating window
+super + alt + f
+    bspc node -t floating
+
+
+
+# preselect the splitting area
+super + control + alt + {Left,Down,Up,Right}
+    bspc node -p ~{west,south,north,east}
+
+
+# resize window
+super + alt + {Left,Right}
+    bspc node @west -r {-10,+10}
+super + alt + {Down,Up}
+    bspc node @north -r {+10,-10}
+    
+super + alt + shift + {Left,Right}
+    bspc node @east -r {-10,+10}
+super + alt + shift + {Down,Up}
+    bspc node @south -r {+10,-10}
+
+
+# focus windows forward backward
+#super + {_,shift + }Tab
+#    bspc node -f {next,prev}.local
+super + {Right,Left}
+    bspc node -f {next,prev}.local
+
+
+# focus or swap windows [second part is for monocle]
+#super + {_,shift + }{Left,Down,Up,Right}
+#    bspc node -{f,s} {west,south,north,east}.local || bspc node -{f,s} {prev,prev,next,next}.local
+super + shift + {Left,Down,Up,Right}
+    bspc node -s {west,south,north,east}.local || bspc node -s {prev,prev,next,next}.local
+
+
+# swap with last window
+super + shift + grave
+    bspc node -s last
+
+
+
+
+
+
+############################################
+#               desktops
+############################################
+
+
+# cycle desktops in current monitor
+super + control + {Left,Right}
+    bspc desktop -f {prev,next}.local
+
+
+# next layout (monocle or tiled)
+super + space
+    bspc desktop -l next
+
+
+
+# balance the desktop (adjust split area)
+super + alt + b
+    bspc node @focused:/ -B
+
+
+# equalize the desktop (adjust split area)
+super + alt + e
+    bspc node @focused:/ -E
+
+
+
+# rotate the leaves of the tree
+super + bracketright
+    bspc node @south -R 90 || bspc node @west -R 90 || bspc node @north -R 90 || bspc node @east -R 90
+super + bracketleft
+    bspc node @north -R 270 || bspc node @west -R 270 || bspc node @south -R 270 || bspc node @east -R 270
+
+
+# flip the desktop tree
+super + shift + bracket{left,right}
+    bspc node @focused:/ -F {horizontal,vertical}
+
+
+
+# adjust window gap
+super + alt + {KP_Add, KP_Subtract}
+    bspc config -d focused window_gap $((`bspc config -d focused window_gap` {+,-} 2 ))
+
+
+
+
+
+
+############################################
+#        windows and desktops
+############################################
+
+
+# focus desktop / send window to desktop
+super + {_,shift + }{1,2,3,4,5,6}
+    bspc {desktop -f,node -d} {web,dev,git,i,ii,iii}
+
+
+
+
+
+
+############################################
+#               mouse
+############################################
+
+
+# grab focus on mouse click
+~button1
+    bspc node -f
+
+
+
+# cycle desktops
+alt + button{4,5}
+    bspc desktop -f {next,prev}
+
+
+
+
+
+
+############################################
+#            app shortcuts
+############################################
+
+
+# Launch dmenu
+super + a
+    rofi -modi run -show run
+
+# Windows switcher
+super + w
+    rofi -modi window,windowcd -show windowcd
+
+# Start a terminal
+super + control + Return
+    gnome-terminal
+
+
+# Launch firefox
+super + control + f
+    firefox
+
+
+# Launch file manager
+super + control + z
+    krusader
+
+
+# QtCreator
+super + control + q
+    ~/Qt/Tools/QtCreator/bin/qtcreator.sh
+
+
+# gitkraken
+super + control + k
+    gitkraken
+
+
+# skype
+super + control + s
+    skype
+
+
+# lock screen
+super + l
+    xscreensaver-command -l
+
+
+# tasksmanager
+super + control + t
+    tasksmanager
+
+
+# reset monitors
+suprt + control + m
+    setup_monitors r
+
+
+
+############################################
+#               system
+############################################
+
+
+# Go to sleep
+super + control + F1
+    systemctl suspend
+
+
+# Reboot
+super + control + F11
+    systemctl reboot
+
+
+# Shutdown
+super + control + F12
+    systemctl poweroff
+
+
+# Mute volume
+XF86AudioMute
+    amixer -q -D pulse sset Master 5%+
+
+
+# Decrease volume
+XF86AudioLowerVolume
+    amixer -q -D pulse sset Master 5%+
+
+
+# Increase volume
+XF86AudioRaiseVolume
+    amixer -q -D pulse sset Master 5%+
+
+
+
+# Decrease backlight
+#XF86MonBrightnessDown
+super + control + F5
+    xbacklight -20
+
+
+# Increase backlight
+#XF86MonBrightnessUp
+super + control + F6
+    xbacklight +20
+

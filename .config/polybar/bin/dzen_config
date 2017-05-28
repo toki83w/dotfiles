@@ -1,0 +1,21 @@
+# the caller has to specify LINES, WIDTH and optionally ACT and FONT
+
+
+if [ -z "$ACT" ]; then
+    ACT='onstart=uncollapse;button1=exit;button3=exit;leaveslave=exit'
+fi
+
+XPOS=$(( $(xdotool getmouselocation 2>/dev/null | cut -d\  -f1 | cut -d: -f2) - ($WIDTH/2) ))
+YPOS=22
+
+if [ -z "$FONT" ]; then
+    FONT=NotoMono-Regular:size=10
+fi
+
+FG=#dfdfdf
+BG=#444
+
+TO=10
+
+
+OPTS="-p $TO -l $LINES -e $ACT -bg $BG -fg $FG -fn $FONT -tw $WIDTH -w $WIDTH -x $XPOS -y $YPOS"

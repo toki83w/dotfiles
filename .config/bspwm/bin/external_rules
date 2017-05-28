@@ -1,0 +1,18 @@
+#! /bin/sh
+
+#~ wid=$1
+class=$2
+instance=$3
+
+fn=/tmp/bspwm.nodes
+N=`tail -50 $fn`
+
+(echo "$N"; echo "$class:$instance") > $fn
+
+#focusedDesk=`bspc query -T -d focused | grep -Po '"'"name"'"\s*:\s*"\K([^"]*)'`
+focusedDesk=`bspc query -D -d focused --names`
+
+# all new windows [except qtcreator] on desktop dev become floating
+if [ "$focusedDesk" = "dev" -a "$class" != "QtCreator" ]; then
+    echo "state=floating"
+fi

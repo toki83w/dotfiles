@@ -1,0 +1,17 @@
+#!/bin/bash
+
+FN=/tmp/dzen_cpu.$$
+touch $FN
+
+LINES=$((`nproc`+2))
+WIDTH=380
+. dzen_config
+
+(echo "CPU";
+while [ -f $FN ]; do
+	D=`mpstat -P ALL 1 1 | tail -n +3 | cut -c 14-48,89-`
+	L=$(( `echo "$D" | wc -l`/2 ))
+        echo "$D" | head -n $L
+done) | ( dzen2 $OPTS -sa c; rm $FN )
+
+
