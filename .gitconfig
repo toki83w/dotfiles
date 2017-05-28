@@ -1,0 +1,29 @@
+[include]
+    path = .gitconfig-user
+[core]
+#	ignore = dirty
+    excludesfile = /home/anlu/.gitignore
+[alias]
+    co = checkout
+    cot = "!f() { git checkout TeamCity/Paving_TSLA-$1; }; f"
+    cob = "!f() { git checkout bugfix/Paving_TSLA-$1; }; f"
+    cof = "!f() { git checkout feature/Paving_TSLA-$1; }; f"
+    cm = checkout master
+    b  = branch
+    bd = branch -d
+    mm = merge master
+    rbm = rebase master
+    undo = reset --soft HEAD~
+    redo = commit -c ORIG_HEAD
+    p = !git pull && git submodule update --init --recursive
+    f = fetch
+    st = stash
+    sp = stash pop
+    sl = stash list
+    mt = mergetool --tool=kdiff3
+    ph = push origin HEAD
+    s  = status
+[push]
+	default = current
+[rerere]
+	enabled = true
