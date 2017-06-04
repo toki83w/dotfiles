@@ -102,7 +102,7 @@ label-tiled-foreground = ${colors.focused}
 type = internal/cpu
 interval = 0.5
 
-format = %{A1:dzen_cpu:}<ramp-coreload>%{A}
+format = %{A1:dzen_cpu:A3:dzen_temp:}<ramp-coreload>%{A}
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 4

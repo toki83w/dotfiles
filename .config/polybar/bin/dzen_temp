@@ -1,0 +1,16 @@
+#!/bin/bash
+
+FN=/tmp/dzen_temp.$$
+touch $FN
+
+LINES=$(sensors | wc -l)
+WIDTH=480
+. dzen_config
+
+(echo "TEMPERATURES";
+while [ -f $FN ]; do
+    sensors
+    sleep 1
+done) | ( dzen2 $OPTS; rm $FN )
+
+
