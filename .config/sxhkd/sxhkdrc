@@ -178,7 +178,7 @@ super + a
     rofi -modi run -show run
 
 # Windows switcher
-super + w
+super + Tab
     rofi -modi window,windowcd -show windowcd
 
 # Start a terminal
