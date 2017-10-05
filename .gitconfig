@@ -9,13 +9,16 @@
     cob = "!f() { git checkout bugfix/Paving_TSLA-$1; }; f"
     cof = "!f() { git checkout feature/Paving_TSLA-$1; }; f"
     cm = checkout master
+    cr = checkout release/0.9
     b  = branch
     bd = branch -d
     mm = merge master
+    mr = merge release/0.9
     rbm = rebase master
     undo = reset --soft HEAD~
     redo = commit -c ORIG_HEAD
     p = !git pull && git submodule update --init --recursive
+    smu = !git submodule update --init --recursive
     f = fetch
     st = stash
     sp = stash pop
@@ -23,6 +26,7 @@
     mt = mergetool --tool=kdiff3
     ph = push origin HEAD
     s  = status
+    cp = cherry-pick
 [push]
 	default = current
 [rerere]
