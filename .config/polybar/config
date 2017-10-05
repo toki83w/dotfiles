@@ -102,7 +102,7 @@ label-tiled-foreground = ${colors.focused}
 type = internal/cpu
 interval = 0.5
 
-format = %{A1:dzen_cpu:A3:dzen_temp:}<ramp-coreload>%{A}
+format = %{A1:dzen_cpu:A3:dzen_temp:}<ramp-coreload>%{A}%{A}
 
 ramp-coreload-0 = ▁
 ramp-coreload-0-font = 4
@@ -187,8 +187,6 @@ ramp-capacity-foreground = ${colors.foreground}
 ramp-capacity-1-foreground = #ff0000
 ramp-capacity-0-foreground = #ff0000
 ramp-capacity-2-foreground = #ffb52a
-
-click-left = (echo "head"; upower -i $(upower -e | grep BAT) | grep -E "state|to\ full|percentage|to\ empty") | dzen2 -l 3 -m -p -e 'onstart=uncollapse;button1=exit' -bg '#222' -fg '#dfdfdf' -fn Monospace-Regular:size=8 -y 22 -tw 300 -w 300 -x $(( $(xdotool getmouselocation 2>/dev/null | cut -d\  -f1 - | cut -d: -f2)-150 ))
 
 
 [module/temperature]
